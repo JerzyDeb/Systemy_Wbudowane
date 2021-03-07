@@ -31,13 +31,19 @@ void WriteArray(int tab[], int size)
 int * DecimalToBinary(int number, int size)
 {
 	int *tab = malloc(sizeof(int) * size); //Decalre a size of dynamic array
-	int j = 0;
+	int i;
+	int j = size-1;
+
+	for (i = 0;i < size;i++)
+	{
+		tab[i] = 0;
+	}
 
 	while (number) //While number is not 0
 	{
 		tab[j] = number & 1; //AND operation on the last element 
 		number >>= 1; //Right shift by one ("Decrease" number) 
-		j++;
+		j--;
 	}
 
 	return tab;
